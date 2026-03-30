@@ -856,8 +856,10 @@ function callAI(payload) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload)
   }).then(function(r) {
-    if (!r.ok) return r.json().then(function(e){ throw new Error(e.error || r.status); });
-    return r.json();
+    return r.text();
+  }).then(function(text) {
+    try { return JSON.parse(text); }
+    catch(e) { throw new Error('응답 파싱 실패: ' + text.slice(0, 100)); }
   });
 }
 
