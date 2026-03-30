@@ -849,7 +849,7 @@ function applyScanResult() {
 }
 
 /* ═══ AI 공통 호출 함수 ═══════════════════════════════════════════════════ */
-// 모든 AI 호출은 Netlify Function을 통해 서버에서 처리됨 (API 키 불필요)
+// API 키는 Netlify 서버에만 저장 — 사용자 키 입력 불필요
 function callAI(payload) {
   return fetch('/.netlify/functions/ai', {
     method: 'POST',
