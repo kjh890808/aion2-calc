@@ -795,7 +795,6 @@ function doScanParse() {
     system:SYSTEM,
     messages:[{role:'user', content:userContent}]
   })
-  .then(function(r){return r.json();})
   .then(function(data){
     var texts='';
     var content=data.content||[];
